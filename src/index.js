@@ -8,10 +8,10 @@ var app = express();
 var cors = require("cors");
 app.use(cors());
 
-const port = 3000;
+const port = 3100;
 
 var corsOptions = {
-  origin: "https://ck6of.csb.app/",
+  origin: "*", //"https://ck6of.csb.app/",
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -28,12 +28,12 @@ app.use(
   express.static(path.join(__dirname, "classifier_models/original"))
 );
 
-app.get("/ping", cors(corsOptions), function(req, res) {
+app.get("/ping", cors(corsOptions), function (req, res) {
   return res.send("pong");
 });
 
-app.get("/", cors(corsOptions), function(req, res) {
-  res.send("Visit app at: https://ck6of.csb.app/");
+app.get("/", cors(corsOptions), function (req, res) {
+  res.send("Visit app at: https://fernando12170209.github.io/MIA/");
 });
 
 app.listen(port, () =>
